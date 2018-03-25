@@ -1,0 +1,6 @@
+framework module Pods_Listable_Example {
+  umbrella header "Pods-Listable_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

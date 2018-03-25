@@ -1,0 +1,22 @@
+PODS:
+  - Listable (0.1.0)
+  - Nimble (7.0.3)
+  - Quick (1.2.0)
+
+DEPENDENCIES:
+  - Listable (from `../`)
+  - Nimble (~> 7.0.2)
+  - Quick (~> 1.2.0)
+
+EXTERNAL SOURCES:
+  Listable:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Listable: 194c268e3408602af7d62cad80b46c510f9e7216
+  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+
+PODFILE CHECKSUM: 859d118c4cf9778f8b2a13ff8a5b6119121aaf95
+
+COCOAPODS: 1.4.0

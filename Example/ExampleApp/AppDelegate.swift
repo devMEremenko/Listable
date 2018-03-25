@@ -20,13 +20,10 @@
  THE SOFTWARE.
  */
 
-import Quick
-import Nimble
+import UIKit
 
-class TableOfContentsSpec: QuickSpec {
-    override func spec() {
-        describe("") {
-            
-        }
-    }
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    var window: UIWindow?
 }

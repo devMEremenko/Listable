@@ -20,13 +20,12 @@
  THE SOFTWARE.
  */
 
-import Quick
-import Nimble
+import UIKit
 
-class TableOfContentsSpec: QuickSpec {
-    override func spec() {
-        describe("") {
-            
-        }
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
 }
+
