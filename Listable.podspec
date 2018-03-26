@@ -27,15 +27,16 @@ Pod::Spec.new do |s|
   Listable manages DataSources of UITableViews and UICollectionViews
                           DESC
 
-  s.homepage         = 'https://github.com/devmeremenko/Listable'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Maxim Eremenko' => 'devmeremenko@gmail.com' }
-  s.source           = { :git => 'https://github.com/devmeremenko/Listable.git' }
-  s.social_media_url = 'https://twitter.com/eremenko_maxim'
-
-  s.ios.deployment_target = '10.0'
-  s.source_files = 'Listable/Classes/**/*'
+  s.homepage                = 'https://github.com/devmeremenko/Listable'
+  s.license                 = { :type => 'MIT', :file => 'LICENSE' }
+  s.author                  = { 'Maxim Eremenko' => 'devmeremenko@gmail.com' }
+  s.source                  = { :git => 'https://github.com/devmeremenko/Listable.git' }
+  s.social_media_url        = 'https://twitter.com/eremenko_maxim'
+  s.ios.deployment_target   = '10.0'
+  s.pod_target_xcconfig     = { 'SWIFT_WHOLE_MODULE_OPTIMIZATION' => 'YES',
+                                'SWIFT_VERSION' => '4.0'}
+  
+  s.source_files = 'Classes/**/*.swift'
 
   s.frameworks = 'UIKit', 'Foundation'
   s.dependency 'EasyCalls/Queues', '~> 1.2'
