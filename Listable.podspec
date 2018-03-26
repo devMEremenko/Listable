@@ -20,7 +20,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Listable'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'Listable manages DataSources of UITableView and UICollectionView'
 
   s.description      = <<-DESC
@@ -35,6 +35,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target   = '10.0'
   s.pod_target_xcconfig     = { 'SWIFT_WHOLE_MODULE_OPTIMIZATION' => 'YES',
                                 'SWIFT_VERSION' => '4.0'}
+  s.swift_version = '4.0'
   
   s.source_files = 'Classes/**/*.swift'
 

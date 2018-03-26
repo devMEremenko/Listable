@@ -22,21 +22,21 @@
 
 import UIKit
 
-protocol Registrable {
+public protocol Registrable {
     
     func register(cell: AnyClass, identifier: String)
     
     func register(nib: UINib, identifier: String)
 }
 
-protocol TableRegistrable: Registrable {
+public protocol TableRegistrable: Registrable {
     
     func register(headerFooter: AnyClass, identifier: String)
     
     func register(headerFooterNib: UINib, identifier: String)
 }
 
-protocol CollectionRegistrable: Registrable {
+public protocol CollectionRegistrable: Registrable {
     
     func register(headerFooter: AnyClass, identifier: String, kind: String?)
     
@@ -45,38 +45,38 @@ protocol CollectionRegistrable: Registrable {
 
 extension TableController: TableRegistrable {
     
-    func register(cell: AnyClass, identifier: String) {
+    public func register(cell: AnyClass, identifier: String) {
         listView?.register(cell: cell, identifier: identifier)
     }
     
-    func register(nib: UINib, identifier: String) {
+    public func register(nib: UINib, identifier: String) {
         listView?.register(nib: nib, identifier: identifier)
     }
     
-    func register(headerFooter: AnyClass, identifier: String) {
+    public func register(headerFooter: AnyClass, identifier: String) {
         listView?.register(headerFooter: headerFooter, identifier: identifier, kind: nil)
     }
     
-    func register(headerFooterNib: UINib, identifier: String) {
+    public func register(headerFooterNib: UINib, identifier: String) {
         listView?.register(headerFooterNib: headerFooterNib, identifier: identifier, kind: nil)
     }
 }
 
 extension CollectionController: CollectionRegistrable {
     
-    func register(cell: AnyClass, identifier: String) {
+    public func register(cell: AnyClass, identifier: String) {
         listView?.register(cell: cell, identifier: identifier)
     }
     
-    func register(nib: UINib, identifier: String) {
+    public func register(nib: UINib, identifier: String) {
         listView?.register(nib: nib, identifier: identifier)
     }
     
-    func register(headerFooter: AnyClass, identifier: String, kind: String?) {
+    public func register(headerFooter: AnyClass, identifier: String, kind: String?) {
         listView?.register(headerFooter: headerFooter, identifier: identifier, kind: kind)
     }
     
-    func register(headerFooterNib: UINib, identifier: String, kind: String?) {
+    public func register(headerFooterNib: UINib, identifier: String, kind: String?) {
         listView?.register(headerFooterNib: headerFooterNib, identifier: identifier, kind: kind)
     }
 }

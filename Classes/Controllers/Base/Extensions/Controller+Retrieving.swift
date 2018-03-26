@@ -74,7 +74,7 @@ extension BaseListController {
         return self.sections.first(where: { $0.identifier == identifier })
     }
     
-    func row(at section: Int, row: Int) -> RowProtocol? {
+    public func row(at section: Int, row: Int) -> RowProtocol? {
         guard let found = self.section(atIndex: section) else { return nil }
         return found.row(at: row)
     }
