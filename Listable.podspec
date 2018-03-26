@@ -23,9 +23,11 @@ Pod::Spec.new do |s|
   s.version          = '0.1.0'
   s.summary          = 'Listable manages DataSources of UITableView and UICollectionView'
 
-  s.description      = <<-DESC DESC
+  s.description      = <<-DESC
+  Listable manages DataSources of UITableViews and UICollectionViews
+                          DESC
 
-  s.homepage         = 'https://github.com/devmeremeko/Listable'
+  s.homepage         = 'https://github.com/devmeremenko/Listable'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Maxim Eremenko' => 'devmeremenko@gmail.com' }
