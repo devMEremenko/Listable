@@ -20,7 +20,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Listable'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'Listable manages DataSources of UITableView and UICollectionView'
 
   s.description      = <<-DESC
@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
   s.homepage                = 'https://github.com/devmeremenko/Listable'
   s.license                 = { :type => 'MIT', :file => 'LICENSE' }
   s.author                  = { 'Maxim Eremenko' => 'devmeremenko@gmail.com' }
-  s.source                  = { :git => 'https://github.com/devmeremenko/Listable.git' }
+  s.source                  = { :git => 'https://github.com/devmeremenko/listable.git' }
   s.social_media_url        = 'https://twitter.com/eremenko_maxim'
   s.ios.deployment_target   = '10.0'
   s.pod_target_xcconfig     = { 'SWIFT_WHOLE_MODULE_OPTIMIZATION' => 'YES',

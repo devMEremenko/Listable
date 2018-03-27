@@ -33,7 +33,7 @@ import UIKit
 /// TableManager is the class which manage the content and events of a `UITableView`.
 /// You need to allocate this class with a valid table instance to manage.
 /// Then you can use public funcs to add, remove or move rows.
-public class TableController: BaseListController, UITableViewDataSource, UITableViewDelegate {
+open class TableController: BaseListController, UITableViewDataSource, UITableViewDelegate {
     
 	/// Default height of the header/footer with plain style
 	private static let HEADERFOOTER_HEIGHT: CGFloat = 44.0

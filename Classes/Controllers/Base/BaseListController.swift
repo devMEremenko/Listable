@@ -22,7 +22,7 @@
 
 import UIKit
 
-public class BaseListController: NSObject {
+open class BaseListController: NSObject {
     
     public weak var listView: ListView?
     

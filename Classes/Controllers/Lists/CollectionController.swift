@@ -22,7 +22,7 @@
 
 import UIKit
 
-public class CollectionController: BaseListController, UICollectionViewDataSource, UICollectionViewDelegate {
+open class CollectionController: BaseListController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     public init(collection: UICollectionView, estimateRowHeight: Bool = true) {
         super.init(listView: collection, estimateRowHeight: estimateRowHeight)
