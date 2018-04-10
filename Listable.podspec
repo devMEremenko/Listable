@@ -20,7 +20,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Listable'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = 'Listable manages DataSources of UITableView and UICollectionView'
 
   s.description      = <<-DESC
