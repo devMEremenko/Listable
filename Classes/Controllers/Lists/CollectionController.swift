@@ -56,4 +56,20 @@ open class CollectionController: BaseListController, UICollectionViewDataSource,
         
         return cell
     }
+    
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let row = self.sections[indexPath.section].rows[indexPath.row]
+        
+        //let select_behaviour = row.onTap?((cell,indexPath)) ?? .deselect(true)
+        let select_behaviour = row.onTap?(row) ?? .deselect(true)
+        switch select_behaviour {
+        case .deselect(let animated):
+            // remove selection, is a temporary tap selection
+            collectionView.deselectItem(at: indexPath, animated: animated)
+        case .keepSelection:
+            //row.onSelect?((cell,indexPath)) // dispatch selection change event
+            row.onSelect?(row) // dispatch selection change event
+        }
+    }
 }

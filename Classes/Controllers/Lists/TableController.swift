@@ -70,7 +70,7 @@ open class TableController: BaseListController, UITableViewDataSource, UITableVi
 	/// Perform a non-animated reload of the data
 	/// If you don't use `update` func you should call it when an operation on
 	/// sections or rows in section in order to reflect changes on UI.
-    public override func reloadData() {
+    open override func reloadData() {
 		self.clearHeightCache()
 		super.reloadData()
 	}
@@ -81,7 +81,7 @@ open class TableController: BaseListController, UITableViewDataSource, UITableVi
 	///
 	/// - Parameter tableView: target table
 	/// - Returns: number of sections
-	public func numberOfSections(in tableView: UITableView) -> Int {
+	open func numberOfSections(in tableView: UITableView) -> Int {
 		return self.sections.count
 	}
 	
@@ -91,7 +91,7 @@ open class TableController: BaseListController, UITableViewDataSource, UITableVi
 	///   - tableView: target table
 	///   - section: section to get the number of elements
 	/// - Returns: number of rows for this section
-	public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return (self.sections[section]).countRows
 	}
 	
@@ -101,7 +101,7 @@ open class TableController: BaseListController, UITableViewDataSource, UITableVi
 	///   - tableView: target table
 	///   - cell: cell instance
 	///   - indexPath: index path of the cell
-	public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+	open func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		let hashedRow = cell.hashValue
 		guard let row = self._removedRows[hashedRow] else {
 			return
@@ -145,7 +145,7 @@ open class TableController: BaseListController, UITableViewDataSource, UITableVi
 	///   - tableView: The table-view object requesting this information.
 	///   - indexPath: An index path that locates a row in tableView.
 	/// - Returns: A nonnegative floating-point value that estimates the height (in points) that row should be.
-	public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+	open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		let row = self.sections[indexPath.section].rows[indexPath.row]
 		let height = self.rowHeight(forRow: row, at: indexPath)
 		return height
@@ -258,7 +258,7 @@ open class TableController: BaseListController, UITableViewDataSource, UITableVi
 	///   - tableView: target table
 	///   - section: section
 	/// - Returns: the height of the header
-	public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+	open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 		return self.sectionHeight(at: section, estimated: false, .header)
 	}
 	
@@ -270,7 +270,7 @@ open class TableController: BaseListController, UITableViewDataSource, UITableVi
 	///   - tableView: target table
 	///   - section: section
 	/// - Returns: footer string if present, `nil` otherwise
-	public func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+	open func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
 		return (self.sections[section]).footerTitle
 	}
 	
@@ -280,7 +280,7 @@ open class TableController: BaseListController, UITableViewDataSource, UITableVi
 	///   - tableView: target table
 	///   - section: section
 	/// - Returns: footer view to use (it overrides footer string if set)
-	public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+	open func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
 		return self.registerAndDequeueSection(at: section, .footer)
 	}
 	
@@ -290,7 +290,7 @@ open class TableController: BaseListController, UITableViewDataSource, UITableVi
 	///   - tableView: target table
 	///   - section: section
 	/// - Returns: the height of the footer instance
-	public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+	open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
 		return self.sectionHeight(at: section, estimated: false, .footer)
 	}
 	
@@ -300,7 +300,7 @@ open class TableController: BaseListController, UITableViewDataSource, UITableVi
 	///   - tableView: target table
 	///   - section: section
 	/// - Returns: the estimated height of the footer instance
-	public func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
+	open func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
 		return self.sectionHeight(at: section, estimated: true, .footer)
 	}
 	
@@ -310,7 +310,7 @@ open class TableController: BaseListController, UITableViewDataSource, UITableVi
 	///   - tableView: target tableview
 	///   - view: view of the header
 	///   - section: section
-	public func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+	open func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
 		guard let sectionView = self.sections[section].footerView else {
 			return
 		}
@@ -321,7 +321,7 @@ open class TableController: BaseListController, UITableViewDataSource, UITableVi
 	///
 	/// - Parameter tableView: target table
 	/// - Returns: strings to show for each section of the table
-	public func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+	open func sectionIndexTitles(for tableView: UITableView) -> [String]? {
 		return self.sectionsIndexesTitles
 	}
 	
@@ -334,7 +334,7 @@ open class TableController: BaseListController, UITableViewDataSource, UITableVi
 	///   - index:	An index number identifying a section title in the array returned
 	///				by `sectionIndexTitles(for:)`.
 	/// - Returns: An index number identifying a section.
-	public func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+	open func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
 		return (self.sectionsIndexes?[index] ?? 0)
 	}
 	
@@ -347,7 +347,7 @@ open class TableController: BaseListController, UITableViewDataSource, UITableVi
 	/// - Returns:	An index-path object that confirms or alters the selected row.
 	///				Return an NSIndexPath object other than indexPath if you want another cell
 	///				to be selected. Return nil if you don't want the row selected.
-	public func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+	open func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
 		//let cell = tableView.cellForRow(at: indexPath) // instance of the cell
 		let row = self.sections[indexPath.section].rows[indexPath.row]
 		
@@ -364,7 +364,7 @@ open class TableController: BaseListController, UITableViewDataSource, UITableVi
 	/// - Parameters:
 	///   - tableView: target table
 	///   - indexPath: An index path locating the new selected row in tableView.
-	public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+	open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		//let cell = tableView.cellForRow(at: indexPath) // instance of the cell
 		let row = self.sections[indexPath.section].rows[indexPath.row]
 		
@@ -385,7 +385,7 @@ open class TableController: BaseListController, UITableViewDataSource, UITableVi
 	/// - Parameters:
 	///   - tableView: target table
 	///   - indexPath: An index path locating the deselected row in tableView.
-	public func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+	open func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
 		// Dispatch on de-select event to the represented model of the row
 		//let cell = tableView.cellForRow(at: indexPath)
 		let row = self.sections[indexPath.section].rows[indexPath.row]
@@ -401,7 +401,7 @@ open class TableController: BaseListController, UITableViewDataSource, UITableVi
 	///   - tableView: The table view that sent the message.
 	///   - cell: The cell to be displayed.
 	///   - indexPath: An index path locating the row in tableView
-	public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+	open func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		// Dispatch display event for a particular cell to its represented model
 		//let cell = tableView.cellForRow(at: indexPath)
 		let row = self.sections[indexPath.section].rows[indexPath.row]
@@ -416,7 +416,7 @@ open class TableController: BaseListController, UITableViewDataSource, UITableVi
 	///   - tableView: The table-view object that is making this request.
 	///   - indexPath: The index path of the row being highlighted.
 	/// - Returns: `true` or `false`.
-	public func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+	open func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
 		let row = self.sections[indexPath.section].rows[indexPath.row]
 		// If static cell implements a valid value for `shouldHightlight`
 		if let shouldHighlight = row._shouldHighlight {
@@ -435,7 +435,7 @@ open class TableController: BaseListController, UITableViewDataSource, UITableVi
 	///   - tableView: The table-view object requesting this information.
 	///   - indexPath: An index path locating a row in tableView.
 	/// - Returns: true if the row indicated by indexPath is editable; otherwise, false.
-	public func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+	open func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
 		let row = self.sections[indexPath.section].rows[indexPath.row]
 		// If no actions are definined cell is not editable
 		//return row.onEdit?((cell,indexPath))?.count ?? 0 > 0
@@ -450,7 +450,7 @@ open class TableController: BaseListController, UITableViewDataSource, UITableVi
 	///   - indexPath: The index path of the row.
 	/// - Returns: An array of UITableViewRowAction objects representing the actions
 	///            for the row. Each action you provide is used to create a button that the user can tap.
-	public func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+	open func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 		let row = self.sections[indexPath.section].rows[indexPath.row]
 		return row.onEdit?(row) ?? nil
 	}
@@ -475,7 +475,7 @@ open class TableController: BaseListController, UITableViewDataSource, UITableVi
 	///   - tableView: The table-view object requesting this information.
 	///   - indexPath: An index path locating a row in tableView.
 	/// - Returns: boolean
-	public func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+	open func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
 		let row = self.sections[indexPath.section].rows[indexPath.row]
 		return row.canMove?(row) ?? false
 	}
@@ -487,7 +487,7 @@ open class TableController: BaseListController, UITableViewDataSource, UITableVi
 	///   - tableView: The table-view object requesting this information.
 	///   - indexPath: An index-path object locating the row in its section.
 	/// - Returns: boolean
-	public func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+	open func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
 		let row = self.sections[indexPath.section].rows[indexPath.row]
 		return row.shouldIndentOnEditing?(row) ?? true
 	}
